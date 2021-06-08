@@ -1,4 +1,4 @@
-package br.com.zupacademy.rodrigo.proposta;
+package br.com.zupacademy.rodrigo.proposta.proposta;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
