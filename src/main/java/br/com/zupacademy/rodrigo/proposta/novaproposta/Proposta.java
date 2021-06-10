@@ -10,6 +10,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
+import br.com.zupacademy.rodrigo.proposta.webservice.enuns.EstadoProposta;
+
 @Entity
 public class Proposta {
 
@@ -26,6 +28,8 @@ public class Proposta {
 	@NotNull
 	@Positive
 	private BigDecimal salario;
+	
+	private EstadoProposta EstadoProposta; 
 	
 	@Deprecated
 	public Proposta() {
@@ -66,6 +70,14 @@ public class Proposta {
 	
 	private void setId(Integer id) {
 		this.id = id; 
+	}
+
+	public EstadoProposta getEstadoProposta() {
+		return EstadoProposta;
+	}
+
+	public void setEstadoProposta(EstadoProposta estadoProposta) {
+		EstadoProposta = estadoProposta;
 	}
 	
 	
