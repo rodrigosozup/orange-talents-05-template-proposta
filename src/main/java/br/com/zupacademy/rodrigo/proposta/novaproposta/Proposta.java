@@ -29,7 +29,9 @@ public class Proposta {
 	@Positive
 	private BigDecimal salario;
 	
-	private EstadoProposta EstadoProposta; 
+	private String idCartao; 
+
+	private EstadoProposta estadoProposta; 
 	
 	@Deprecated
 	public Proposta() {
@@ -73,12 +75,19 @@ public class Proposta {
 	}
 
 	public EstadoProposta getEstadoProposta() {
-		return EstadoProposta;
+		return estadoProposta;
 	}
 
 	public void setEstadoProposta(EstadoProposta estadoProposta) {
-		EstadoProposta = estadoProposta;
+		this.estadoProposta = estadoProposta;
 	}
 	
+	public String getIdCartao() {
+		return idCartao;
+	}
+
+	public void setIdCartao(String idCartao) {
+		this.idCartao = idCartao;
+	}
 	
 }
