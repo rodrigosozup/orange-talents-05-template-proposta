@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,6 +47,17 @@ public class PropostaController {
 		
 		URI uri = uriComponentsBuilder.path("/propostas/{id}").buildAndExpand(proposta.getId()).toUri(); 
 		return ResponseEntity.created(uri).body(proposta); 
+	}
+	
+	@GetMapping("/{id}")
+	@Transactional
+	public ResponseEntity<PropostaResponse> listarPorId(@PathVariable Integer id){
+		Optional<Proposta> proposta =  propostaRepository.findById(id); 
+		if(proposta.isPresent()) {
+			return ResponseEntity.ok(new PropostaResponse(proposta.get())); 
+		}
+		
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); 
 	}
 
 	private void validarPropostaExistenteComCpfOuCnpj(NovaPropostaDTO propostaDTO) {
