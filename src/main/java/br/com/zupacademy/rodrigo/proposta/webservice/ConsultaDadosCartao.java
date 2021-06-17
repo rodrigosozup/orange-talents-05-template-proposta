@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import br.com.zupacademy.rodrigo.proposta.webservice.dto.CartaoResponse;
 import br.com.zupacademy.rodrigo.proposta.webservice.dto.PropostaConsultaDadosRequest;
 
-@FeignClient(name="dadosCartao",  url = "http://localhost:8888")
+@FeignClient(name="dadosCartao",  url = "${servico.associar.cartao}")
 public interface ConsultaDadosCartao {
 
 	@PostMapping(value = "/api/cartoes")

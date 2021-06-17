@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import br.com.zupacademy.rodrigo.proposta.webservice.dto.PropostaConsultaDadosRequest;
 import br.com.zupacademy.rodrigo.proposta.webservice.dto.PropostaConsultaDadosResponse;
 
-@FeignClient(name ="dadosSolicitante", url = "http://localhost:9999")
+
+@FeignClient(name ="dadosSolicitante", url = "${servico.consultar.dados.solicitante}")
 public interface ConsultaDadosSolicitante {
 
 	@PostMapping("/api/solicitacao")
