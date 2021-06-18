@@ -1,12 +1,5 @@
 package br.com.zupacademy.rodrigo.proposta.associarcartao;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
-
 import br.com.zupacademy.rodrigo.proposta.cartao.Cartao;
 import br.com.zupacademy.rodrigo.proposta.cartao.CartaoRepository;
 import br.com.zupacademy.rodrigo.proposta.exception.ApiErroException;
@@ -18,6 +11,12 @@ import br.com.zupacademy.rodrigo.proposta.webservice.dto.PropostaConsultaDadosRe
 import br.com.zupacademy.rodrigo.proposta.webservice.enuns.EstadoProposta;
 import feign.FeignException;
 import feign.FeignException.FeignClientException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class AssociarCartao {
@@ -39,7 +38,7 @@ public class AssociarCartao {
 				e.setIdCartao(cartaoResponse.getId()); 
 				propostaRepository.save(e); 
 				Cartao cartao = cartaoResponse.ToModel(); 
-				cartaoRepository.save(cartao);  
+				cartaoRepository.save(cartao);
 			} catch (FeignClientException ex) {
 				throw new ApiErroException(HttpStatus.BAD_REQUEST, "Não foi possível associar cartão a proposta"); 
 			}catch(FeignException ex) {

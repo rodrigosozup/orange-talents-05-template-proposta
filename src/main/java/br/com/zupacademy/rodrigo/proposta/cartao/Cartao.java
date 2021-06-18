@@ -1,5 +1,7 @@
 package br.com.zupacademy.rodrigo.proposta.cartao;
 
+import br.com.zupacademy.rodrigo.proposta.biometria.Biometria;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +33,9 @@ public class Cartao {
 	private Renegociacao renegociacao; 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Vencimento vencimento; 
-	
+
+	@OneToMany
+	private List<Biometria> biometrias = new ArrayList<>();
 	@Deprecated
 	public Cartao() {
 	}
@@ -79,5 +83,8 @@ public class Cartao {
 	}
 	public Vencimento getVencimento() {
 		return vencimento;
-	} 
+	}
+	public void addBiometria(Biometria biometria){
+		this.biometrias.add(biometria);
+	}
 }
