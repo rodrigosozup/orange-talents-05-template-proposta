@@ -1,7 +1,5 @@
 package br.com.zupacademy.rodrigo.proposta.cartao;
 
-import br.com.zupacademy.rodrigo.proposta.biometria.Biometria;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import br.com.zupacademy.rodrigo.proposta.cartao.biometria.Biometria;
 
 
 @Entity
@@ -86,5 +86,17 @@ public class Cartao {
 	}
 	public void addBiometria(Biometria biometria){
 		this.biometrias.add(biometria);
+	}
+	
+	public void addBloqueio(Bloqueio bloqueio){
+		this.bloqueios.add(bloqueio);
+	}
+	
+	public boolean isBloqueado() {
+		for (Bloqueio bloqueio : bloqueios) {
+			if(bloqueio.isAtivo())
+				return true; 
+		}
+		return false; 
 	}
 }

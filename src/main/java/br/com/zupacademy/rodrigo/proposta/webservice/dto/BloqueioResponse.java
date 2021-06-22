@@ -24,7 +24,7 @@ public class BloqueioResponse {
 	} 
 	
 	public Bloqueio toModel() {
-		return new Bloqueio(id, bloqueadoEm, sistemaResponsavel, ativo); 
+		return new Bloqueio(sistemaResponsavel, ativo); 
 	}
     
 }

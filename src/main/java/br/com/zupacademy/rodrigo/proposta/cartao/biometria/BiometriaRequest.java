@@ -1,4 +1,4 @@
-package br.com.zupacademy.rodrigo.proposta.biometria;
+package br.com.zupacademy.rodrigo.proposta.cartao.biometria;
 
 import javax.validation.constraints.NotBlank;
 
