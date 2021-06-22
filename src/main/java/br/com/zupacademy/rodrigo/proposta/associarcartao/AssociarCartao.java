@@ -5,7 +5,7 @@ import br.com.zupacademy.rodrigo.proposta.cartao.CartaoRepository;
 import br.com.zupacademy.rodrigo.proposta.exception.ApiErroException;
 import br.com.zupacademy.rodrigo.proposta.novaproposta.Proposta;
 import br.com.zupacademy.rodrigo.proposta.novaproposta.PropostaRepository;
-import br.com.zupacademy.rodrigo.proposta.webservice.ConsultaDadosCartao;
+import br.com.zupacademy.rodrigo.proposta.webservice.ServicoCartao;
 import br.com.zupacademy.rodrigo.proposta.webservice.dto.CartaoResponse;
 import br.com.zupacademy.rodrigo.proposta.webservice.dto.PropostaConsultaDadosRequest;
 import br.com.zupacademy.rodrigo.proposta.webservice.enuns.EstadoProposta;
@@ -24,7 +24,7 @@ public class AssociarCartao {
 	@Autowired
 	private PropostaRepository propostaRepository; 
 	@Autowired
-	private ConsultaDadosCartao  consultaDadosCartao; 
+	private ServicoCartao  consultaDadosCartao; 
 	@Autowired
 	private CartaoRepository cartaoRepository; 
 	

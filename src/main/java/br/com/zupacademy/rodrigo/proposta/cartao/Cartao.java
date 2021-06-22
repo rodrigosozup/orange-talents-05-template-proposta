@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -34,6 +36,9 @@ public class Cartao {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Vencimento vencimento; 
 
+	@Enumerated(EnumType.STRING)
+	private EstadoCartao estadoCartao; 
+	
 	@OneToMany
 	private List<Biometria> biometrias = new ArrayList<>();
 	@Deprecated
@@ -53,6 +58,7 @@ public class Cartao {
 		this.carteiras = carteiras;
 		this.renegociacao = renegociacao;
 		this.vencimento = vencimento;
+		this.estadoCartao = EstadoCartao.NAO_BLOQUEADO; 
 	}
 	public String getId() {
 		return id;
@@ -93,10 +99,18 @@ public class Cartao {
 	}
 	
 	public boolean isBloqueado() {
-		for (Bloqueio bloqueio : bloqueios) {
-			if(bloqueio.isAtivo())
-				return true; 
+		if(this.estadoCartao == EstadoCartao.BLOQUEADO) {
+			return true; 
 		}
 		return false; 
 	}
+
+	public EstadoCartao getEstadoCartao() {
+		return estadoCartao;
+	}
+
+	public void setEstadoCartao(EstadoCartao estadoCartao) {
+		this.estadoCartao = estadoCartao;
+	}
+	
 }
