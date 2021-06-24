@@ -93,6 +93,9 @@ public class Cartao {
 	public void addBiometria(Biometria biometria){
 		this.biometrias.add(biometria);
 	}
+	public void addAviso(Aviso aviso){
+		this.avisos.add(aviso);
+	}
 	
 	public void addBloqueio(Bloqueio bloqueio){
 		this.bloqueios.add(bloqueio);

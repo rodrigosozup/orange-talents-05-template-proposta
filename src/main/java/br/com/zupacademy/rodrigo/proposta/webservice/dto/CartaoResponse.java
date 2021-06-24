@@ -70,8 +70,10 @@ public class CartaoResponse {
 	}
 	
 	private List<Aviso> toModelListAviso() {
+		/*Modificação necessaria,  a mdevidoudança no construtor da classe Aviso. 
+		 * O objeto Aviso Response ainda não foi utilizado no sistema*/ 
 		return avisos.stream()
-				.map(e -> new Aviso(e.getId(),e.getValidoAte() , e.getDestino())).collect(Collectors.toList()); 
+				.map(e -> new Aviso() ).collect(Collectors.toList()); 
 	}
 	
 	private List<Carteira> toModelListCarteira() {
